@@ -238,14 +238,22 @@ public class PlayerWonController : playerController {
 
 	IEnumerator bassDrum() {
 		
-		yield return  new WaitForSeconds(.75f);
+		yield return  new WaitForSeconds(.70f);
 		p1HoldingA = true;
-		yield return new WaitForSeconds(.25f);
+		yield return new WaitForSeconds(.35f);
 		p1HoldingA = false;
 
 
 
 		
+	}
+
+	IEnumerator comboXPart1() {
+
+		yield return new WaitForSeconds(1.60f);
+		p1HoldingX = true;
+		yield return new WaitForSeconds(.35f);
+		p1HoldingX = false;
 	}
 
 	IEnumerator lightCooldown() {
@@ -278,11 +286,13 @@ public class PlayerWonController : playerController {
 			EnergyYP1.SetActive (false);
 				}
 
-		if (Input.GetButton ("P1X")) {
-			p1HoldingX = true;
+		if (Input.GetButtonDown ("P1X")) {
+			comboX ();
+			StartCoroutine("comboXPart1");
+			//p1HoldingX = true;
 			//aoe ();
 		} else {
-			p1HoldingX = false; 
+			//p1HoldingX = false; 
 		}
 
 		if ((Input.GetButton ("P1B"))) {
@@ -299,6 +309,8 @@ public class PlayerWonController : playerController {
 		}
 
 		if ((Input.GetButtonDown ("P1A"))) {
+			rb.transform.Translate (Vector3.forward * 1);
+			comboA();
 			GetComponent<AudioSource>().Play();
 			StartCoroutine("bassDrum");
 			
@@ -335,9 +347,9 @@ public class PlayerWonController : playerController {
 			lightDodge ();
 		}
 
-		else if (Input.GetButtonDown ("P1X") || Input.GetKeyDown (KeyCode.M)) {
+		else if (Input.GetButtonDown ("P1X")) {
 			//lightDodge();
-			rb.transform.Translate (Vector3.forward * 10);
+			//rb.transform.Translate (Vector3.forward * 10);
 
 			//lightDodge();
 		}
@@ -397,7 +409,7 @@ public class PlayerWonController : playerController {
 			
 
 		//Basic light attack
-		if ((Input.GetButtonDown ("P1A")) && (Jab1 == 1)) {
+		/*if ((Input.GetButtonDown ("P1A")) && (Jab1 == 1)) {
 			//myAnimator.SetBool ("Attack", true);
 			rb.transform.Translate (Vector3.forward * 1);
 			lightJab ();
@@ -425,7 +437,7 @@ public class PlayerWonController : playerController {
 			StartCoroutine(lightCooldown1());
 			
 
-		}
+		}*/
 
 
 

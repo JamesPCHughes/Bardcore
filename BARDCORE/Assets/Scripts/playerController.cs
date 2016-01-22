@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour {
 	public GameObject fire2;
 	public GameObject fire3;
 	public GameObject fire4;
+	public GameObject comboXObject;
 	public GameObject otherPlayer;
 	public Color currentColor;
 	public GameObject myParticleSystem;
@@ -359,6 +360,28 @@ public class playerController : MonoBehaviour {
 		
 		//GameObject tempFire = Instantiate(fire, PunchPoint1.position, Quaternion.identity) as GameObject;
 		GameObject tempFire = Instantiate(fire, PunchPoint1.position, PunchRotation1) as GameObject;
+
+	}
+
+	public void comboA(){
+		//Right Swing
+		//attackSpawnDistance = 3;
+		Transform PunchPoint1 = transform.FindChild ("jab");
+		Quaternion PunchRotation1 = gameObject.transform.rotation;
+		
+		//GameObject tempFire = Instantiate(fire, PunchPoint1.position, Quaternion.identity) as GameObject;
+		GameObject tempFire = Instantiate(fire, PunchPoint1.position, PunchRotation1) as GameObject;
+
+	}
+
+	public void comboX(){
+		//Right Swing
+		//attackSpawnDistance = 3;
+		Transform PunchPoint1 = transform.FindChild ("jab");
+		Quaternion PunchRotation1 = gameObject.transform.rotation;
+		
+		//GameObject tempFire = Instantiate(fire, PunchPoint1.position, Quaternion.identity) as GameObject;
+		GameObject tempFire = Instantiate(comboXObject, PunchPoint1.position, PunchRotation1) as GameObject;
 
 	}
 

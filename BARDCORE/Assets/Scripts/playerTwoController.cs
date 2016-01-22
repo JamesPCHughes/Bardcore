@@ -456,6 +456,17 @@ public class playerTwoController : playerController {
 			StartCoroutine("lightJab");
 			}
 
+		if (Input.GetButtonDown ("P2X") && p1HoldX == true) {
+			StartCoroutine("frontAttackPowered");			
+			StartCoroutine("comboX");
+
+
+		}
+
+		else if (Input.GetButtonDown ("P2X")) {
+			StartCoroutine("comboX");
+		}
+
 		if (Input.GetButtonDown ("P2LB") && p1HoldRB == true && beatbool == true) {
 			
 			comboConnectP2 ();	
@@ -485,7 +496,7 @@ public class playerTwoController : playerController {
 		}
 		else if (Input.GetButtonDown ("P2X")) {
 			//lightDodge();
-			rb.transform.Translate (Vector3.forward * 10);
+			//rb.transform.Translate (Vector3.forward * 10);
 		//	lightDodge();
 		}
 
